@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import Banner from '@/components/banner/Banner';
 import Plans from '@/components/banner/Plans';
 
