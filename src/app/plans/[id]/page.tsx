@@ -9,13 +9,11 @@ interface IPlanDetailsPageProps {
   }>;
 }
 
-// এই লাইনটি Next.js কে নির্দেশ দেবে পেজটি বিল্ড টাইমে না বানিয়ে 
-// রানটাইমে লাইভ ডেটা দিয়ে রেন্ডার করতে। এতে বিল্ড আর আটকাবে না।
 export const dynamic = 'force-dynamic';
 
 const getPlans = async () => {
   try {
-    // আপনার আসল লাইভ API লিঙ্কটি এখানে বসানো হয়েছে
+   
     const response = await fetch("https://api.abcz.workers.dev/api/fitlog");
     if (!response.ok) {
       throw new Error("Failed to fetch data");
