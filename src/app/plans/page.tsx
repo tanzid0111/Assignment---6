@@ -5,15 +5,8 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 
-interface IPlan {
-  id: number;
-  name: string;
-  image: string;
-  duration: number;
-  caloriesBurned: number;
-  equipment?: string;
-  rating?: number;
-}
+import { IPlan } from "@/types/plans.type";
+
 
 const PlanContent = () => {
   const searchParams = useSearchParams();

@@ -1,23 +1,17 @@
 import { IPlan } from "@/types/plans.type";
 
-const API_URL = "https://api.abcz.workers.dev/api/fitlog";
+const API_URL = "https://api.api-store.workers.dev/api/fitlog"; 
 
 export const fetchPlans = async (): Promise<IPlan[]> => {
   try {
     const response = await fetch(API_URL, {
-      cache: "no-store",
+      next: { revalidate: 0 },
       headers: {
-        Accept: "application/json",
+        "Accept": "application/json",
       },
     });
 
-    const contentType = response.headers.get("content-type");
-
-    // রেসপন্স সঠিক না হলে বা JSON না পাঠালে খালি অ্যারে বা ফলব্যাক দেবে
-    if (!response.ok || !contentType || !contentType.includes("application/json")) {
-      console.error(`API Error: Received invalid response from ${API_URL}`);
-      return [];
-    }
+    if (!response.ok) return [];
 
     const data = await response.json();
     return Array.isArray(data) ? data : [];

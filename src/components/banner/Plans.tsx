@@ -7,19 +7,14 @@ export const dynamic = 'force-dynamic';
 const getPlans = async (): Promise<IPlan[]> => {
   try {
    
-    const response = await fetch("https://api.abcz.workers.dev/api/fitlog", {
-      cache: "no-store",
+    const response = await fetch("https://api.api-store.workers.dev/api/fitlog", {
+      next: { revalidate: 0 },
       headers: {
         "Accept": "application/json",
       },
     });
 
-    const contentType = response.headers.get("content-type");
-
-    if (!response.ok || !contentType || !contentType.includes("application/json")) {
-      console.error("API Fetch Error: Received invalid content type or status code");
-      return [];
-    }
+    if (!response.ok) return [];
 
     const data = await response.json();
     return Array.isArray(data) ? data : [];
@@ -35,13 +30,10 @@ const Plans = async () => {
   return (
     <section className="bg-[#0d0e11] min-h-screen px-6 py-12">
       <div className="max-w-6xl mx-auto">
-
-     
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white tracking-wide uppercase">
             THE LIBRARY
           </h1>
-
           <p className="text-gray-500 text-sm mt-2">
             Twelve lifts covering every major muscle group.
           </p>
@@ -58,12 +50,8 @@ const Plans = async () => {
             <p className="text-gray-400 text-base font-medium">
               No workout plans available at the moment.
             </p>
-            <p className="text-gray-600 text-xs mt-1">
-              Please check back later or verify your API configuration.
-            </p>
           </div>
         )}
-
       </div>
     </section>
   );
