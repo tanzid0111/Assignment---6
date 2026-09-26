@@ -1,6 +1,6 @@
 import React from "react";
 import PlanCard from "../PlanCard";
-import IPlan from "@/types/plans.type"
+import { IPlan } from "@/types/plans.type"; 
 
 
 const getPlans = async () => {

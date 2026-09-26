@@ -133,7 +133,7 @@ const PlanContent = () => {
           </div>
         </div>
 
-        {/* Workout Cards */}
+       
         {sortedPlans.length > 0 ? (
           <div className="flex flex-col gap-4">
             {sortedPlans.map((plan) => (
@@ -141,11 +141,13 @@ const PlanContent = () => {
                 
                 <div className="flex items-center gap-4">
                   <div className="relative w-24 h-16 rounded-lg overflow-hidden shrink-0 bg-gray-800">
-                    <Image
-                      src={plan.image} 
-                      alt={plan.name} 
-                      className="w-full h-full object-cover" 
-                    />
+                  <Image
+             src={plan.image}
+             alt={plan.name}
+          width={96}
+        height={74}
+       className="w-full h-full object-cover"
+           />
                   </div>
                   
                   <div>

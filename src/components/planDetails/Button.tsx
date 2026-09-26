@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import toast from 'react-hot-toast';
-import IPlan from "@/types/plans.type"; 
+import { IPlan } from "@/types/plans.type";
 
 interface ButtonProps {
   plan: IPlan;

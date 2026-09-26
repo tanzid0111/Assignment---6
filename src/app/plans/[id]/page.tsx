@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Button from '@/components/planDetails/Button';
-import IPlan from "@/types/plans.type"
+import { IPlan } from "@/types/plans.type";
 
 
 
@@ -60,7 +60,7 @@ const PlanDetailsPage = async ({ params }: IPlanDetailsPageProps) => {
 
          
               <div className="flex flex-wrap gap-2 mb-6">
-                {plan.muscleGroups.map((muscle, index) => (
+                {plan.muscleGroups.map((muscle:string, index:number) => (
                   <span
                     key={index}
                     className="bg-[#c2ff1a] text-black font-semibold text-xs px-3 py-1 rounded-full uppercase"
@@ -108,7 +108,7 @@ const PlanDetailsPage = async ({ params }: IPlanDetailsPageProps) => {
                   Instructions
                 </h3>
                 <ol className="list-decimal list-inside space-y-2 text-sm text-gray-300">
-                  {plan.instructions.map((step, index) => (
+                  {plan.instructions.map((step:any, index:number) => (
                     <li key={index} className="leading-relaxed">
                       <span className="text-gray-400">{step}</span>
                     </li>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { IPlan } from "@/types/plans.type";
 
 interface IPlanCardProps {
   plan: IPlan;
@@ -25,7 +26,7 @@ const PlanCard = ({ plan }: IPlanCardProps) => {
 
         <div className="p-4">
           <div className="flex flex-wrap gap-2 mb-3">
-            {plan.muscleGroups.map((muscle) => (
+            {plan.muscleGroups.map((muscle:string) => (
               <span
                 key={muscle}
                 className="bg-[#b7ff00] text-black text-[9px] font-bold px-2 py-[3px] rounded-full uppercase"
