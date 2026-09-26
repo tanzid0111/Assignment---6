@@ -79,7 +79,7 @@ const PlanContent = () => {
           <p className="text-gray-500 text-xs sm:text-sm">Cap of five lifts for today. Finish them, then load more.</p>
         </div>
 
-        {/* Counter Cards */}
+        
         <div className="grid grid-cols-3 bg-[#13141a] rounded-xl border border-gray-800/60 p-4 sm:p-6 mb-8 divide-x divide-gray-800">
           <div className="flex flex-col justify-center px-2 sm:px-4">
             <span className="text-[10px] sm:text-xs uppercase text-gray-500 font-bold mb-1 sm:mb-2">Exercises</span>
@@ -95,7 +95,7 @@ const PlanContent = () => {
           </div>
         </div>
 
-        {/* Tabs & Sorting */}
+        
         <div className="flex flex-wrap items-center justify-between border-b border-gray-900 pb-4 mb-8 gap-4">
           <div className="bg-[#13141a] p-1 rounded-xl flex border border-gray-800/40">
             <button 
@@ -133,7 +133,6 @@ const PlanContent = () => {
           </div>
         </div>
 
-       
         {sortedPlans.length > 0 ? (
           <div className="flex flex-col gap-4">
             {sortedPlans.map((plan) => (
@@ -141,22 +140,45 @@ const PlanContent = () => {
                 
                 <div className="flex items-center gap-4">
                   <div className="relative w-24 h-16 rounded-lg overflow-hidden shrink-0 bg-gray-800">
-                  <Image
-             src={plan.image}
-             alt={plan.name}
-          width={96}
-        height={74}
-       className="w-full h-full object-cover"
-           />
+                    <Image
+                      src={plan.image}
+                      alt={plan.name}
+                      width={96}
+                      height={74}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   
                   <div>
                     <h3 className="font-bold text-white uppercase text-sm md:text-base">{plan.name}</h3>
                     <p className="text-xs text-gray-500 mb-1">{plan.equipment || 'Bodyweight'}</p>
                     <div className="flex flex-wrap items-center gap-3 text-xs text-gray-400 font-medium">
-                      <span className="flex items-center gap-1">🕒 {plan.duration} min</span>
-                      <span className="flex items-center gap-1 text-[#c2ff1a]">🔥 {plan.caloriesBurned} kcal</span>
-                      <span className="flex items-center gap-1">⭐ {plan.rating || '4.5'}</span>
+                      
+                 
+                      <span className="flex items-center gap-1 text-gray-300">
+                        <svg className="w-3.5 h-3.5 text-[#c2ff1a]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                          <circle cx="12" cy="12" r="10" />
+                          <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        {plan.duration} min
+                      </span>
+
+                     
+                      <span className="flex items-center gap-1 text-[#c2ff1a]">
+                        <svg className="w-3.5 h-3.5 fill-[#c2ff1a]" viewBox="0 0 24 24">
+                          <path d="M12 23c-4.97 0-9-3.58-9-8 0-4.19 3.58-7.58 6.55-11.23.36-.44 1.04-.4 1.34.09.91 1.48 2.15 3.01 3.2 4.41.34.45 1.01.44 1.33-.03 1.18-1.72 2.37-3.6 2.82-5.74.08-.38.53-.55.84-.33C21.1 4.02 21 8.84 21 15c0 4.42-4.03 8-9 8zm0-13.5c-1.33 1.83-2.67 3.67-4 5.5 0 2.48 1.79 4.5 4 4.5s4-2.02 4-4.5c-1.33-1.83-2.67-3.67-4-5.5z"/>
+                        </svg>
+                        {plan.caloriesBurned} kcal
+                      </span>
+
+                     
+                      <span className="flex items-center gap-1 text-gray-300">
+                        <svg className="w-3.5 h-3.5 fill-yellow-400 stroke-yellow-400" viewBox="0 0 24 24">
+                          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
+                        {plan.rating || '4.5'}
+                      </span>
+
                     </div>
                   </div>
                 </div>
@@ -169,13 +191,18 @@ const PlanContent = () => {
                     View Details
                   </Link>
                   <button className="bg-[#c2ff1a] hover:bg-[#b0e617] text-black px-3 sm:px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1 transition">
-                    ✓ Mark as Done
+                    <svg className="w-3.5 h-3.5 stroke-black stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Mark as Done
                   </button>
                   <button 
                     onClick={() => handleDelete(plan.id)}
                     className="text-gray-500 hover:text-white transition p-2"
                   >
-                    ✕
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
                   </button>
                 </div>
 
