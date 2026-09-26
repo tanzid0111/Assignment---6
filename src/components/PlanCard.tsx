@@ -22,6 +22,7 @@ const PlanCard = ({ plan }: IPlanCardProps) => {
             height={600}
             className="w-full h-full object-cover hover:scale-105 transition duration-500"
           />
+          
         </div>
 
         <div className="p-4">
